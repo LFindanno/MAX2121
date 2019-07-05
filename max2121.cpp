@@ -68,12 +68,12 @@ void MAX2121::setIFgain(uint8_t gain){
 	update();
 }
 
-void standby(){
+void MAX2121::standby(){
 	registers[9] = registers[9] | 0b10000000;
 	update();
 }
 
-void operate(){
+void MAX2121::operate(){
 	registers[9] = registers[9] & 0b01111111;
 	update();
 
@@ -107,5 +107,5 @@ void MAX2121::readStatus(){
 	VASE = (status1 & 0b00100000) >> 5;
 	LD = (status1 & 0b00010000) >> 4;
 	VCOSBR = (status2 & 0b11111000) >> 3;
-	ADC = status2 & 0b00000111;	
+	VASADC = status2 & 0b00000111;	
 }

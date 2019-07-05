@@ -46,9 +46,9 @@ class MAX2121{
   void setIFgain(uint8_t gain); // output gain, range 0 - 15 (db)
   void setLOfreq(uint32_t freq); // min 925000000, max 2175000000
   void readStatus(); // call this before read the following variables
-  void standby();
-  void operate();
-  int POR, VASA, VASE, LD, VCOSBR, ADC;
+  void standby(); // set the chip in standby mode
+  void operate(); // set the chip in normal operation mode
+  int POR, VASA, VASE, LD, VCOSBR, VASADC;
 
  private:
   uint8_t registers[14];
